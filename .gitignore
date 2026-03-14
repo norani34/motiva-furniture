@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+node_modules/
+.DS_Store
+*.log
+.env
+/.idea/
+/.vscode/
+Thumbs.db
+publish/
+build/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example

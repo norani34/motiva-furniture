@@ -1,0 +1,22 @@
+{
+  "name": "motiva",
+  "description": "A high-end luxury furniture website design for a modern furniture brand.",
+  "requestFramePermissions": [],
+  "images": [
+    {
+      "file": "public/WhatsApp Image 2026-03-09 at 7.09.29 AM.jpeg",
+      "caption": "Accent Chair",
+      "alt": "Accent chair"
+    },
+    {
+      "file": "public/image18_dresser-ideas_minimalist-approach.jpg",
+      "caption": "Minimal Dresser",
+      "alt": "Minimal dresser"
+    },
+    {
+      "file": "public/You-need-not-opt-for-a-sideboard-in-a-traditional-sense-of-design.jpg",
+      "caption": "Sideboard",
+      "alt": "Sideboard"
+    }
+  ]
+}
