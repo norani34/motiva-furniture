@@ -15,7 +15,7 @@ export default function AboutPage() {
         {/* Hero Section with Craftsman Video */}
         <section className="relative w-full h-screen overflow-hidden">
           <img
-            src="/WhatsApp%20Image%202026-03-09%20at%206.43.02%20AM.jpeg"
+            src={`${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-43-02.jpeg`}
             alt="Hero"
             className="absolute inset-0 w-full h-full object-cover scale-105"
           />
@@ -106,7 +106,7 @@ export default function AboutPage() {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src="/WhatsApp%20Video%202026-03-09%20at%206.11.03%20AM.mp4" type="video/mp4" />
+                <source src={`${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-11-03.mp4`} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
             </div>
@@ -117,7 +117,7 @@ export default function AboutPage() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
-                src="/WhatsApp%20Image%202026-03-09%20at%206.31.09%20AM.jpeg"
+                src={`${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-31-09.jpeg`}
                 alt="Modern Lifestyle"
                 className="max-w-full max-h-full object-contain"
               />
@@ -177,7 +177,7 @@ export default function AboutPage() {
         <section className="w-full px-4 md:px-12">
           <div className="w-full h-[40vh] md:h-[60vh] relative overflow-hidden rounded-sm">
             <img
-              src="/1440x880_Kennebunkport_10.jpg"
+              src={`${import.meta.env.BASE_URL}1440x880_Kennebunkport_10.jpg`}
               alt="Designed in Studio"
               className="absolute inset-0 w-full h-full object-cover"
             />
