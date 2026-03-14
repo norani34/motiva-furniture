@@ -9,31 +9,31 @@ const exhibitions = [
     id: '01',
     title: 'DINING ROOMS',
     desc: 'Tables, sideboards and dining arrangements that define how people gather and linger.',
-    img: '/WhatsApp%20Image%202026-03-09%20at%206.59.57%20AM.jpeg'
+    img: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-57.jpeg`
   },
   {
     id: '02',
     title: 'LIVING SETS',
     desc: 'Sofa and seating compositions crafted for conversation, comfort and scale.',
-    img: '/WhatsApp%20Image%202026-03-09%20at%206.43.02%20AM.jpeg'
+    img: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-43-02.jpeg`
   },
   {
     id: '03',
     title: 'RECEPTION',
     desc: 'Lobby and reception solutions — statement pieces for arrival spaces.',
-    img: '/WhatsApp%20Image%202026-03-09%20at%206.59.56%20AM%20%282%29.jpeg'
+    img: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-56-2.jpeg`
   },
   {
     id: '04',
     title: 'BEDROOMS',
     desc: 'Beds, nightstands and serene arrangements for restorative spaces.',
-    img: '/WhatsApp%20Image%202026-03-09%20at%206.59.56%20AM%20%281%29.jpeg'
+    img: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-56-1.jpeg`
   },
   {
     id: '05',
     title: 'L-SHAPE',
     desc: 'L-shaped sectional solutions for flexible living and modular layouts.',
-    img: '/WhatsApp%20Image%202026-03-09%20at%206.59.56%20AM.jpeg'
+    img: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-56.jpeg`
   }
 ];
 
@@ -80,7 +80,7 @@ export default function HomePage() {
             playsInline
             className="w-full h-full object-cover opacity-40"
           >
-            <source src="/WhatsApp%20Video%202026-03-09%20at%206.17.19%20AM.mp4" type="video/mp4" />
+            <source src={`${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-17-19.mp4`} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-alabaster/60 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-alabaster/20 via-transparent to-alabaster"></div>

@@ -4,16 +4,16 @@ import PageTransition from '../components/PageTransition';
 
 const galleryImages = [
   "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop",
-  "/1440x880_Kennebunkport_10.jpg",
+  `${import.meta.env.BASE_URL}1440x880_Kennebunkport_10.jpg`,
   "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2600&auto=format&fit=crop",
-  "/WhatsApp%20Image%202026-03-09%20at%206.31.09%20AM.jpeg",
+  `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-31-09.jpeg`,
   "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2680&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=2664&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2574&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1616137466211-f939a420be84?q=80&w=2664&auto=format&fit=crop",
-  "/WhatsApp%20Image%202026-03-09%20at%206.11.05%20AM.jpeg",
-  "/WhatsApp%20Image%202026-03-09%20at%207.09.29%20AM.jpeg",
-  "/You-need-not-opt-for-a-sideboard-in-a-traditional-sense-of-design.jpg",
+  `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-11-05.jpeg`,
+  `${import.meta.env.BASE_URL}whatsapp-2026-03-09-07-09-29.jpeg`,
+  `${import.meta.env.BASE_URL}You-need-not-opt-for-a-sideboard-in-a-traditional-sense-of-design.jpg`,
 ];
 
 export default function GalleryPage() {

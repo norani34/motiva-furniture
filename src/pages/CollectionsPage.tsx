@@ -6,14 +6,14 @@ import PageTransition from '../components/PageTransition';
 const categories = ["All", "DINING ROOMS", "LIVING SETS", "RECEPTION", "BEDROOMS", "L-SHAPE"];
 
 const products = [
-  { id: 1, name: "Eclipse Dining Table", category: "DINING ROOMS", image: "/WhatsApp%20Image%202026-03-09%20at%206.59.57%20AM.jpeg" },
-  { id: 2, name: "Lounge Composition", category: "LIVING SETS", image: "/WhatsApp%20Image%202026-03-09%20at%206.43.02%20AM.jpeg" },
-  { id: 3, name: "Reception Console", category: "RECEPTION", image: "/WhatsApp%20Image%202026-03-09%20at%206.59.56%20AM%20%282%29.jpeg" },
-  { id: 4, name: "Haven Bed Frame", category: "BEDROOMS", image: "/WhatsApp%20Image%202026-03-09%20at%206.59.56%20AM%20%281%29.jpeg" },
-  { id: 5, name: "Modular L-Section", category: "L-SHAPE", image: "/WhatsApp%20Image%202026-03-09%20at%206.59.56%20AM.jpeg" },
-  { id: 6, name: "Accent Chair", category: "LIVING SETS", image: "/WhatsApp%20Image%202026-03-09%20at%207.09.29%20AM.jpeg" },
-  { id: 7, name: "Minimal Dresser", category: "BEDROOMS", image: "/image18_dresser-ideas_minimalist-approach.jpg" },
-  { id: 8, name: "Sideboard", category: "DINING ROOMS", image: "/You-need-not-opt-for-a-sideboard-in-a-traditional-sense-of-design.jpg" },
+  { id: 1, name: "Eclipse Dining Table", category: "DINING ROOMS", image: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-57.jpeg` },
+  { id: 2, name: "Lounge Composition", category: "LIVING SETS", image: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-43-02.jpeg` },
+  { id: 3, name: "Reception Console", category: "RECEPTION", image: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-56-2.jpeg` },
+  { id: 4, name: "Haven Bed Frame", category: "BEDROOMS", image: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-56-1.jpeg` },
+  { id: 5, name: "Modular L-Section", category: "L-SHAPE", image: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-59-56.jpeg` },
+  { id: 6, name: "Accent Chair", category: "LIVING SETS", image: `${import.meta.env.BASE_URL}whatsapp-2026-03-09-07-09-29.jpeg` },
+  { id: 7, name: "Minimal Dresser", category: "BEDROOMS", image: `${import.meta.env.BASE_URL}image18_dresser-ideas_minimalist-approach.jpg` },
+  { id: 8, name: "Sideboard", category: "DINING ROOMS", image: `${import.meta.env.BASE_URL}You-need-not-opt-for-a-sideboard-in-a-traditional-sense-of-design.jpg` },
 ];
 
 export default function CollectionsPage() {
