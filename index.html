@@ -14,7 +14,39 @@
       try {
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       } catch (e) {}
-      try { window.scrollTo(0,0); document.documentElement.scrollTop = 0; } catch (e) {}
+
+      (function forceTop() {
+        try {
+          // temporarily disable smooth scrolling to avoid animated jumps
+          document.documentElement.style.scrollBehavior = 'auto';
+          document.body.style.scrollBehavior = 'auto';
+        } catch (e) {}
+
+        function scrollTop() {
+          try {
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          } catch (e) {}
+        }
+
+        // immediate attempt
+        scrollTop();
+
+        // multiple RAFs and a load listener to counter late layout/hydration shifts
+        for (let i = 0; i < 5; i++) requestAnimationFrame(scrollTop);
+        window.addEventListener('load', scrollTop, { once: true });
+
+        // restore any preferred scroll behaviour shortly after load
+        try {
+          setTimeout(() => {
+            try {
+              document.documentElement.style.scrollBehavior = '';
+              document.body.style.scrollBehavior = '';
+            } catch (e) {}
+          }, 500);
+        } catch (e) {}
+      })();
     </script>
     <div id="root"></div>
     <!-- Vite entry - let the build generate correct asset links -->
