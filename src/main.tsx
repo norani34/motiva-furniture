@@ -33,12 +33,29 @@ function RootApp() {
     window.addEventListener('load', scrollTop, { once: true });
     // small fallback in case of late layout shifts
     const t = setTimeout(scrollTop, 250);
+    // repeated interval to ensure we really end up at the top (max attempts)
+    const maxAttempts = 20;
+    let attempts = 0;
+    const ensureInterval = window.setInterval(() => {
+      try {
+        if (window.scrollY === 0) {
+          clearInterval(ensureInterval);
+          return;
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        attempts += 1;
+        if (attempts >= maxAttempts) {
+          clearInterval(ensureInterval);
+        }
+      } catch (e) {}
+    }, 100);
     const onHashOrPop = () => scrollTop();
     window.addEventListener('hashchange', onHashOrPop);
     window.addEventListener('popstate', onHashOrPop);
 
     return () => {
       clearTimeout(t);
+      clearInterval(ensureInterval);
       timers.forEach((id) => clearTimeout(id));
       rafs.forEach((id) => cancelAnimationFrame(id));
       window.removeEventListener('load', scrollTop);
