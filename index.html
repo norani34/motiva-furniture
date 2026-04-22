@@ -9,6 +9,13 @@
     <link rel="stylesheet" crossorigin href="/motiva-furniture/assets/index-DkXk5xdB.css">
   </head>
   <body>
+    <script>
+      // Defensive: run as early as possible to prevent the browser from restoring scroll
+      try {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      } catch (e) {}
+      try { window.scrollTo(0,0); document.documentElement.scrollTop = 0; } catch (e) {}
+    </script>
     <div id="root"></div>
     <!-- Vite entry - let the build generate correct asset links -->
   </body>
