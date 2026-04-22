@@ -20,6 +20,25 @@ export default function Navbar() {
     setIsOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    // Prevent background scroll when mobile menu is open
+    if (isOpen) {
+      const prev = document.body.style.overflow;
+      // ensure the menu appears from the top of the viewport
+      try { window.scrollTo({ top: 0, left: 0 }); } catch (e) {}
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = prev; };
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) setIsOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -39,16 +58,16 @@ export default function Navbar() {
           MOTIVA
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-12">
+        {/* Desktop Nav (use xl so tablets like iPad use mobile menu) */}
+        <div className="hidden xl:flex items-center space-x-12">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              className="text-[11px] uppercase tracking-[0.2em] text-obsidian/70 hover:text-obsidian transition-colors duration-700 relative group"
+              className="text-[11px] uppercase tracking-[0.2em] text-obsidian/70 hover:text-obsidian focus:text-obsidian transition-colors duration-700 relative group"
             >
               {link.name}
-              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-obsidian transition-all duration-700 group-hover:w-full"></span>
+              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-obsidian transition-all duration-700 group-hover:w-full group-focus:w-full"></span>
             </Link>
           ))}
         </div>
@@ -57,8 +76,10 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-obsidian z-50"
+          className="xl:hidden text-obsidian z-50"
           onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
           {isOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
         </button>
@@ -72,24 +93,49 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 bg-alabaster z-40 flex items-center justify-center"
+            id="mobile-menu"
+            className="fixed inset-0 backdrop-blur-sm bg-black/40 z-40 flex items-start justify-center pt-8"
           >
-            <div className="flex flex-col space-y-8 text-center">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            <div className="w-full max-w-[420px] mx-4">
+              <div className="relative bg-black text-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh]">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Close menu"
+                  className="absolute top-4 right-4 p-3 text-white/80 hover:text-white focus:text-white"
                 >
-                  <Link
-                    to={link.path}
-                    className="text-4xl font-serif text-obsidian hover:text-obsidian/50 transition-colors duration-700"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+                  <X size={20} strokeWidth={1.5} />
+                </button>
+
+                <div className="px-6 pt-8 pb-6 overflow-y-auto max-h-[80vh]">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="text-xl font-serif tracking-widest">MOTIVA</div>
+                    <div className="text-sm uppercase text-white/80">EN</div>
+                  </div>
+
+                  <nav className="flex flex-col gap-6">
+                    {navLinks.map((link, i) => (
+                      <motion.div
+                        key={link.name}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.06, duration: 0.45 }}
+                      >
+                        <Link
+                          to={link.path}
+                          onClick={() => setIsOpen(false)}
+                          className="text-2xl font-serif text-white/90 hover:text-[#D4AF37] focus:text-[#D4AF37] transition-colors duration-300"
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </nav>
+
+                  <div className="mt-8 pt-6 border-t border-white/10">
+                    <p className="text-sm text-white/60 text-center">Explore our collections and projects — crafted with intention.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

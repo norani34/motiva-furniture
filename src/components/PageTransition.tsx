@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 
 interface PageTransitionProps {
@@ -6,6 +6,14 @@ interface PageTransitionProps {
 }
 
 export default function PageTransition({ children }: PageTransitionProps) {
+  useEffect(() => {
+    // Ensure page starts at top when this component mounts (prevents landing at footer)
+    try {
+      window.scrollTo({ top: 0, left: 0 });
+    } catch (e) {
+      // ignore
+    }
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

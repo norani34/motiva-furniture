@@ -40,6 +40,17 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  useEffect(() => {
+    // Prevent browser from restoring scroll on history navigation / reload
+    try {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+    } catch (e) {}
+    // Ensure initial load starts at top
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />

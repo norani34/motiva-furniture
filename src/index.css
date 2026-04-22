@@ -51,3 +51,12 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
 }
+
+/* Focus-visible styles for keyboard users to match site accent */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 3px solid rgba(212,175,55,0.18);
+  outline-offset: 2px;
+}

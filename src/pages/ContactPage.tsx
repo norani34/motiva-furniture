@@ -115,7 +115,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <button type="submit" className="bg-accent text-alabaster font-medium py-4 px-8 uppercase tracking-widest hover:bg-obsidian hover:text-alabaster transition-colors duration-300 inline-flex items-center">
+                  <button type="submit" className="bg-accent text-alabaster font-medium py-4 px-8 uppercase tracking-widest hover:bg-obsidian hover:text-alabaster focus:bg-obsidian focus:text-alabaster active:bg-obsidian active:text-alabaster transition-colors duration-300 inline-flex items-center">
                     Send Message <Send size={16} className="ml-3" />
                   </button>
 

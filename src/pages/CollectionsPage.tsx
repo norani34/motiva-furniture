@@ -64,18 +64,19 @@ export default function CollectionsPage() {
                 exit={{ opacity: 0 }}
                 key={product.id}
                 className="group cursor-pointer"
+                tabIndex={0}
               >
                 <div className="relative h-[400px] mb-6 overflow-hidden bg-stone">
                   <img 
                     src={product.image} 
                     alt={product.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 active:scale-110 focus:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
                 </div>
                 <div className="flex justify-between items-end">
                   <div>
-                    <h3 className="text-xl font-serif text-obsidian mb-1 group-hover:text-accent transition-colors">{product.name}</h3>
+                    <h3 className="text-xl font-serif text-obsidian mb-1 group-hover:text-accent focus:text-accent active:text-accent transition-colors">{product.name}</h3>
                     <p className="text-obsidian/40 text-xs uppercase tracking-widest">{product.category}</p>
                   </div>
                 </div>

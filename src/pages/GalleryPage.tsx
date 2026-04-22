@@ -37,14 +37,15 @@ export default function GalleryPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="break-inside-avoid relative group overflow-hidden"
+                tabIndex={0}
               >
                 <img 
                   src={src} 
                   alt={`Gallery ${index}`} 
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 focus:scale-105 active:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-obsidian font-serif italic text-lg border-b border-obsidian pb-1">View Details</span>
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 focus:opacity-100 active:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-white font-serif italic text-lg border-b border-white/20 pb-1">View Details</span>
                 </div>
               </motion.div>
             ))}

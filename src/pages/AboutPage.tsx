@@ -1,10 +1,15 @@
-import React, { useRef } from 'react';
-import { motion } from 'motion/react';
+import React, { useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import PageTransition from '../components/PageTransition';
 
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const [selectedValue, setSelectedValue] = useState<number | null>(null);
 
   return (
     <PageTransition>
@@ -12,7 +17,7 @@ export default function AboutPage() {
         {/* Hero Section with Craftsman Video */}
         <section className="relative w-full h-screen overflow-hidden">
           <img
-            src={`${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-43-02.jpeg`}
+            src={import.meta.env.BASE_URL + "whatsapp-2026-03-09-06-43-02.jpeg"}
             alt="Hero"
             className="absolute inset-0 w-full h-full object-cover scale-105"
           />
@@ -103,7 +108,7 @@ export default function AboutPage() {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src={`${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-11-03.mp4`} type="video/mp4" />
+                <source src={import.meta.env.BASE_URL + "whatsapp-2026-03-09-06-11-03.mp4"} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
             </div>
@@ -114,7 +119,7 @@ export default function AboutPage() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
-                src={`${import.meta.env.BASE_URL}whatsapp-2026-03-09-06-31-09.jpeg`}
+                src={import.meta.env.BASE_URL + "whatsapp-2026-03-09-06-31-09.jpeg"}
                 alt="Modern Lifestyle"
                 className="max-w-full max-h-full object-contain"
               />
@@ -174,7 +179,7 @@ export default function AboutPage() {
         <section className="w-full px-4 md:px-12">
           <div className="w-full h-[40vh] md:h-[60vh] relative overflow-hidden rounded-sm">
             <img
-              src={`${import.meta.env.BASE_URL}1440x880_Kennebunkport_10.jpg`}
+              src={import.meta.env.BASE_URL + "1440x880_Kennebunkport_10.jpg"}
               alt="Designed in Studio"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -225,16 +230,18 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
                 className="flex flex-col items-center group cursor-pointer"
+                tabIndex={0}
+                onClick={() => setSelectedValue(selectedValue === index ? null : index)}
               >
                 <div className="w-full aspect-[3/4] overflow-hidden mb-8 relative">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                  <div className={`absolute inset-0 transition-colors duration-500 z-10 ${selectedValue === index ? 'bg-transparent' : 'bg-black/20 group-hover:bg-transparent'}`}></div>
                   <img 
                     src={item.img} 
                     alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter grayscale contrast-125 brightness-75 group-hover:grayscale-0 group-hover:brightness-100"
+                    className={`w-full h-full object-cover transition-transform duration-1000 filter grayscale contrast-125 brightness-75 ${selectedValue === index ? 'scale-105 grayscale-0 brightness-100' : 'group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 active:scale-105 focus:scale-105 active:grayscale-0 active:brightness-100 focus:grayscale-0 focus:brightness-100'}`}
                   />
                 </div>
-                <h4 className="text-xs md:text-sm tracking-[0.4em] uppercase text-white/40 group-hover:text-[#D4AF37] transition-colors duration-500">
+                <h4 className={`text-xs md:text-sm tracking-[0.4em] uppercase transition-colors duration-500 ${selectedValue === index ? 'text-[#D4AF37]' : 'text-white/40 group-hover:text-[#D4AF37] focus:text-[#D4AF37] active:text-[#D4AF37]'}` }>
                   {item.title}
                 </h4>
               </motion.div>

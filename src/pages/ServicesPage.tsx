@@ -17,35 +17,35 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
-            <div className="bg-stone p-10 border border-obsidian/5 hover:border-accent/30 transition-colors duration-300 group">
+            <div tabIndex={0} className="bg-stone p-10 border border-obsidian/5 hover:border-accent/30 focus-within:border-accent/30 transition-colors duration-300 group">
               <PenTool className="text-accent mb-6 w-12 h-12" />
               <h3 className="text-2xl font-serif text-obsidian mb-4">Interior Consultation</h3>
               <p className="text-obsidian/60 font-light leading-relaxed mb-8">
                 Our expert designers will work with you to understand your space, style, and needs. We provide mood boards, floor plans, and curated product selections to transform your home.
               </p>
-              <Link to="/contact" className="text-obsidian text-sm uppercase tracking-widest flex items-center group-hover:text-accent transition-colors">
+              <Link to="/contact" className="text-obsidian text-sm uppercase tracking-widest flex items-center group-hover:text-accent focus:text-accent active:text-accent transition-colors">
                 Book Consultation <ArrowRight size={16} className="ml-2" />
               </Link>
             </div>
 
-            <div className="bg-stone p-10 border border-obsidian/5 hover:border-accent/30 transition-colors duration-300 group">
+            <div tabIndex={0} className="bg-stone p-10 border border-obsidian/5 hover:border-accent/30 focus-within:border-accent/30 transition-colors duration-300 group">
               <MessageSquare className="text-accent mb-6 w-12 h-12" />
               <h3 className="text-2xl font-serif text-obsidian mb-4">Custom Design</h3>
               <p className="text-obsidian/60 font-light leading-relaxed mb-8">
                 Need something truly unique? We offer bespoke furniture design services. Choose your materials, dimensions, and finishes to create a one-of-a-kind piece that fits perfectly.
               </p>
-              <Link to="/contact" className="text-obsidian text-sm uppercase tracking-widest flex items-center group-hover:text-accent transition-colors">
+              <Link to="/contact" className="text-obsidian text-sm uppercase tracking-widest flex items-center group-hover:text-accent focus:text-accent active:text-accent transition-colors">
                 Inquire Now <ArrowRight size={16} className="ml-2" />
               </Link>
             </div>
 
-            <div className="bg-stone p-10 border border-obsidian/5 hover:border-accent/30 transition-colors duration-300 group">
+            <div tabIndex={0} className="bg-stone p-10 border border-obsidian/5 hover:border-accent/30 focus-within:border-accent/30 transition-colors duration-300 group">
               <Truck className="text-accent mb-6 w-12 h-12" />
               <h3 className="text-2xl font-serif text-obsidian mb-4">White Glove Delivery</h3>
               <p className="text-obsidian/60 font-light leading-relaxed mb-8">
                 We handle everything from shipping to assembly and placement. Our professional team ensures your furniture arrives safely and is installed exactly where you want it.
               </p>
-              <Link to="/contact" className="text-obsidian text-sm uppercase tracking-widest flex items-center group-hover:text-accent transition-colors">
+              <Link to="/contact" className="text-obsidian text-sm uppercase tracking-widest flex items-center group-hover:text-accent focus:text-accent active:text-accent transition-colors">
                 Learn More <ArrowRight size={16} className="ml-2" />
               </Link>
             </div>
